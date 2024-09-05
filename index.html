@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>BJJ Competidor</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/fontawesome/all.min.css">
+	<!-- Tailwind -->
+	<!-- <script src="https://cdn.tailwindcss.com"></script> -->
+	<link rel="stylesheet" href="css/style.css">
+	<script src="node_modules/alpinejs/dist/cdn.min.js" defer></script>
+	<script src="node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+	<link rel="stylesheet" href="node_modules/sweetalert2/dist/sweetalert2.min.css">
+</head>
+
+<body class="bg-neutral-800 h-full">
+
+	<main class="grid grid-flow-col grid-cols-12 grid-rows-3 w-full">
+		<!-- Lutador 1 -->
+		<section
+			x-data="{ athleteOne: 0, vantagemUm: 0, faltaUm: 0, athleteOneName: 'Primeiro Atleta', teamOne: 'Equipe A' }"
+			class="px-6 flex justify-between border-b-4 border-b-neutral-900/20 items-center select-none">
+			<div class="flex flex-col gap-4 py-8">
+				<div class="flex flex-col gap-2">
+					<div class="flex gap-4">
+						<img src="./img/flags/br.svg" class="h-16 w-30 shrink-0 object-cover" alt="">
+						<h2 class="uppercase text-white text-[48px]" x-text="athleteOneName"></h2>
+						<input class="input rounded text-5xl uppercase" type="text" x-model="athleteOneName">
+					</div>
+					<div class="flex">
+						<h4 class="uppercase text-3xl text-neutral-400" x-text="teamOne"></h4>
+						<input class="input flex text-2xl uppercase team" type="text" x-model="teamOne">
+					</div>
+
+				</div>
+				<div class="bg-black rounded-lg px-6 py-1 w-fit flex gap-4 items-start">
+					<div>
+						<ul class="flex gap-8">
+							<li>
+								<input type="radio" id="u0_one" name="plus" class="hidden peer">
+								<label for="u0_one" x-on:click="athleteOne += 2"
+									class="text-green-300/70 hover:text-green-300  peer-checked:text-green-300 peer-checked:bg-white/10 rounded-full duration-100 text-xl font-semibold p-4 block cursor-pointer">
+									+2
+								</label>
+							</li>
+							<li>
+								<input type="radio" id="u0_two" name="plus" class="hidden peer">
+								<label for="u0_two" x-on:click="athleteOne += 3"
+									class="text-green-300/70 hover:text-green-300  peer-checked:text-green-300 peer-checked:bg-white/10 rounded-full duration-100 text-xl font-semibold p-4 block cursor-pointer">
+									+3
+								</label>
+							</li>
+							<li>
+								<input type="radio" id="u0_tree" name="plus" class="hidden peer">
+								<label for="u0_tree" x-on:click="athleteOne += 4"
+									class="text-green-300/70 hover:text-green-300 peer-checked:text-green-300 peer-checked:bg-white/10 rounded-full  duration-100 text-xl font-semibold p-4 block cursor-pointer">
+									+4
+								</label>
+							</li>
+							<li>
+								<input type="radio" id="u0_four" name="plus" class="hidden peer">
+								<label for="u0_four" x-on:click="vantagemUm++"
+									class="text-green-300/70 hover:text-green-300 peer-checked:text-green-300 peer-checked:bg-white/10 rounded-full  duration-100 text-xl font-semibold p-4 block cursor-pointer">
+									+V
+								</label>
+							</li>
+							<li>
+								<input type="radio" id="u0_five" name="plus" class="hidden peer">
+								<label for="u0_five" x-on:click="faltaUm++"
+									class="text-green-300/70 hover:text-green-300 peer-checked:text-green-300 peer-checked:bg-white/10 rounded-full  duration-100 text-xl font-semibold p-4 block cursor-pointer">
+									+F
+								</label>
+							</li>
+						</ul>
+						<ul class="flex gap-8">
+							<li>
+								<input type="radio" id="u1_one" name="plus" class="hidden peer">
+								<label for="u1_one" x-on:click="athleteOne -= 2"
+									class="text-red-400/40 hover:text-red-300  peer-checked:text-red-300 peer-checked:bg-white/10 rounded-full duration-100 text-xl font-semibold p-4 block cursor-pointer">
+									-2
+								</label>
+							</li>
+							<li>
+								<input type="radio" id="u1_two" name="plus" class="hidden peer">
+								<label for="u1_two" x-on:click="athleteOne -= 3"
+									class="text-red-400/40 hover:text-red-300  peer-checked:text-red-300 peer-checked:bg-white/10 rounded-full duration-100 text-xl font-semibold p-4 block cursor-pointer">
+									-3
+								</label>
+							</li>
+							<li>
+								<input type="radio" id="u1_tree" name="plus" class="hidden peer">
+								<label for="u1_tree" x-on:click="athleteOne -= 4"
+									class="text-red-400/40 hover:text-red-300 peer-checked:text-red-300 peer-checked:bg-white/10 rounded-full  duration-100 text-xl font-semibold p-4 block cursor-pointer">
+									-4
+								</label>
+							</li>
+							<li>
+								<input type="radio" id="u1_four" name="plus" class="hidden peer">
+								<label for="u1_four" x-on:click="vantagemUm--"
+									class="text-red-400/40 hover:text-red-300 peer-checked:text-red-300 peer-checked:bg-white/10 rounded-full  duration-100 text-xl font-semibold p-4 block cursor-pointer">
+									-V
+								</label>
+							</li>
+							<li>
+								<input type="radio" id="u1_five" name="plus" class="hidden peer">
+								<label for="u1_five" x-on:click="faltaUm--"
+									class="text-red-400/40 hover:text-red-300 peer-checked:text-red-300 peer-checked:bg-white/10 rounded-full  duration-100 text-xl font-semibold p-4 block cursor-pointer">
+									-F
+								</label>
+							</li>
+						</ul>
+					</div>
+					<button class="text-white/70 hover:bg-white/10 duration-100 rounded py-4 px-6"
+						id="startStopButton1">CONTAGEM</button>
+				</div>
+			</div>
+			<div class="h-full flex gap-8 flex-initial">
+				<div class="py-8">
+					<div
+						class="flex flex-col gap-2 bg-yellow-600/80 text-black/80 text-center items-center py-2 px-4 rounded-lg">
+						<span class="font-bold text-5xl" id="timer1">00:20</span>
+						<span class="text-lg font-semibold">CONTAGEM</span>
+					</div>
+				</div>
+				<ul class="flex flex-col py-8 justify-between">
+					<li class="flex flex-col items-center justify-around">
+						<span class="font-bold text-neutral-400/60 text-base uppercase">Vantagens</span>
+						<h1 class="text-[120px] font-bold text-neutral-400/80 leading-[120px]" x-text="vantagemUm"></h1>
+					</li>
+					<li class="flex flex-col items-center justify-around">
+						<span class="font-bold text-neutral-400/60 text-base uppercase">Faltas</span>
+						<h1 class="text-[120px] font-bold text-red-400/40 leading-[120px]" x-text="faltaUm"></h1>
+					</li>
+				</ul>
+				<div
+					class="h-full bg-bjj-blue shrink-0 w-96 -mr-6 text-green-600 text-[280px] font-bold text-center items-center flex justify-center leading-[350px]">
+					<span class="text-white" x-text="athleteOne"></span>
+				</div>
+			</div>
+		</section>
+		<!-- Lutador 2 -->
+		<section
+			x-data="{ athleteTwo: 0, vantagemDois: 0, faltaDois: 0, athleteTwoName: 'Segundo Atleta', teamTwo: 'Equipe B' }"
+			class="px-6 flex justify-between items-center select-none">
+			<div class="flex flex-col gap-4 py-8">
+				<div class="flex flex-col gap-2">
+					<div class="flex gap-4">
+						<img src="./img/flags/br.svg" class="h-16 w-30 shrink-0 object-cover" alt="">
+						<h2 class="uppercase text-white text-[48px]" x-text="athleteTwoName"></h2>
+						<input class="input rounded text-5xl uppercase" type="text" x-model="athleteTwoName">
+					</div>
+					<div class="flex">
+						<h4 class="uppercase text-3xl text-neutral-400" x-text="teamTwo"></h4>
+						<input class="input flex text-2xl uppercase team" type="text" x-model="teamTwo">
+					</div>
+				</div>
+				<div class="bg-black rounded-lg px-6 py-1 w-fit flex gap-4 items-start">
+					<div>
+						<ul class="flex gap-8">
+							<li>
+								<input type="radio" id="u2_one" name="plus_2" class="hidden peer">
+								<label for="u2_one" x-on:click="athleteTwo += 2"
+									class="text-green-300/70 hover:text-green-300  peer-checked:text-green-300 peer-checked:bg-white/10 rounded-full duration-100 text-xl font-semibold p-4 block cursor-pointer">
+									+2
+								</label>
+							</li>
+							<li>
+								<input type="radio" id="u2_two" name="plus_2" class="hidden peer">
+								<label for="u2_two" x-on:click="athleteTwo += 3"
+									class="text-green-300/70 hover:text-green-300  peer-checked:text-green-300 peer-checked:bg-white/10 rounded-full duration-100 text-xl font-semibold p-4 block cursor-pointer">
+									+3
+								</label>
+							</li>
+							<li>
+								<input type="radio" id="u2_tree" name="plus_2" class="hidden peer">
+								<label for="u2_tree" x-on:click="athleteTwo += 4"
+									class="text-green-300/70 hover:text-green-300 peer-checked:text-green-300 peer-checked:bg-white/10 rounded-full  duration-100 text-xl font-semibold p-4 block cursor-pointer">
+									+4
+								</label>
+							</li>
+							<li>
+								<input type="radio" id="u2_four" name="plus_2" class="hidden peer">
+								<label for="u2_four" x-on:click="vantagemDois++"
+									class="text-green-300/70 hover:text-green-300 peer-checked:text-green-300 peer-checked:bg-white/10 rounded-full  duration-100 text-xl font-semibold p-4 block cursor-pointer">
+									+V
+								</label>
+							</li>
+							<li>
+								<input type="radio" id="u2_five" name="plus_2" class="hidden peer">
+								<label for="u0_five" x-on:click="faltaDois++"
+									class="text-green-300/70 hover:text-green-300 peer-checked:text-green-300 peer-checked:bg-white/10 rounded-full  duration-100 text-xl font-semibold p-4 block cursor-pointer">
+									+F
+								</label>
+							</li>
+						</ul>
+						<ul class="flex gap-8">
+							<li>
+								<input type="radio" id="u3_one" name="plus_2" class="hidden peer">
+								<label for="u3_one" x-on:click="athleteTwo -= 2"
+									class="text-red-400/40 hover:text-red-300  peer-checked:text-red-300 peer-checked:bg-white/10 rounded-full duration-100 text-xl font-semibold p-4 block cursor-pointer">
+									-2
+								</label>
+							</li>
+							<li>
+								<input type="radio" id="u3_two" name="plus_2" class="hidden peer">
+								<label for="u3_two" x-on:click="athleteTwo -= 3"
+									class="text-red-400/40 hover:text-red-300  peer-checked:text-red-300 peer-checked:bg-white/10 rounded-full duration-100 text-xl font-semibold p-4 block cursor-pointer">
+									-3
+								</label>
+							</li>
+							<li>
+								<input type="radio" id="u3_tree" name="plus_2" class="hidden peer">
+								<label for="u3_tree" x-on:click="athleteTwo -= 4"
+									class="text-red-400/40 hover:text-red-300 peer-checked:text-red-300 peer-checked:bg-white/10 rounded-full  duration-100 text-xl font-semibold p-4 block cursor-pointer">
+									-4
+								</label>
+							</li>
+							<li>
+								<input type="radio" id="u3_four" name="plus_2" class="hidden peer">
+								<label for="u3_four" x-on:click="vantagemDois--"
+									class="text-red-400/40 hover:text-red-300 peer-checked:text-red-300 peer-checked:bg-white/10 rounded-full  duration-100 text-xl font-semibold p-4 block cursor-pointer">
+									-V
+								</label>
+							</li>
+							<li>
+								<input type="radio" id="u3_five" name="plus_2" class="hidden peer">
+								<label for="u1_five" x-on:click="faltaDois--"
+									class="text-red-400/40 hover:text-red-300 peer-checked:text-red-300 peer-checked:bg-white/10 rounded-full  duration-100 text-xl font-semibold p-4 block cursor-pointer">
+									-F
+								</label>
+							</li>
+						</ul>
+					</div>
+					<button class="text-white/70 hover:bg-white/10 duration-100 rounded py-4 px-6"
+						id="startStopButton2">CONTAGEM</button>
+				</div>
+			</div>
+			<div class="h-full flex gap-8">
+				<div class="py-8">
+					<div
+						class="flex flex-col gap-2 bg-yellow-600/80 text-black/80 text-center items-center py-2 px-4 rounded-lg">
+						<span class="font-bold text-5xl" id="timer2">00:20</span>
+						<span class="text-lg font-semibold">CONTAGEM</span>
+					</div>
+				</div>
+				<ul class="flex flex-col py-8 justify-between">
+					<li class="flex flex-col items-center justify-around">
+						<span class="font-bold text-neutral-400/60 text-base uppercase">Vantagens</span>
+						<h1 class="text-[120px] font-bold text-neutral-400/80 leading-[120px]" x-text="vantagemDois">
+						</h1>
+					</li>
+					<li class="flex flex-col items-center justify-around">
+						<span class="font-bold text-neutral-400/60 text-base uppercase">Faltas</span>
+						<h1 class="text-[120px] font-bold text-red-400/40 leading-[120px]" x-text="faltaDois"></h1>
+					</li>
+				</ul>
+				<div class="relative w-96 h-full -mr-6">
+
+					<div
+						class="bg-black absolute -top-6 left-1/2 -translate-x-1/2 shadow-[0_0_20px_#2d2d2d] text-neutral-400 w-56 font-bold text-center rounded-lg py-2 px-4">
+						bjjcompetidor.com.br
+					</div>
+
+					<div
+						class="bg-gray h-full shrink-0 w-full text-white/90 text-[280px] font-bold text-center items-center flex justify-center leading-[350px]">
+						<span class="text-red-600" x-text="athleteTwo"></span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- time -->
+		<footer class="bg-neutral-900 py-4 px-6 flex justify-between items-center">
+			<!-- LEFT -->
+
+			<div class="flex flex-col gap-4" x-data="{ category: 'ADULTO - PESO LEVE - ATÉ 76kg'}">
+				<div>
+					<div class="flex flex-row gap-6">
+						<h4 class="text-yellow-600 text-3xl">MATCH</h4>
+						<div class="text-neutral-400 flex flex-col text-sm">
+							<span>DESENVOLVIDO POR BJJCOMPETIDOR.COM.BR</span>
+							<span>contato@bjjcompetidor.com.br</span>
+						</div>
+					</div>
+					<div class="flex py-2">
+						<h4 class="uppercase text-white text-3xl" x-text="category"></h4>
+						<input class="input" type="text" x-model="category" style="margin-left: 10px;">
+					</div>
+				</div>
+
+				<!-- buttons action -->
+				<div class="bg-black rounded-lg px-4 py-2 text-white/90 w-fit text-base">
+					<!-- group btn one -->
+					<div class="flex justify-around gap-6">
+						<button class="py-2 px-4 hover:bg-white/10 rounded uppercase" id="fullscreenButton"
+							onclick="toggleFullScreen()">tela inteira</button>
+						<button class="py-2 px-4 hover:bg-white/10 rounded uppercase" id="tutorial">tutorial</button>
+					</div>
+					<!-- group btn two -->
+					<div class="flex justify-around gap-6">
+						<button class="py-2 px-4 hover:bg-white/10 rounded uppercase" id="pix">doação</button>
+						<button class="py-2 px-4 hover:bg-white/10 rounded uppercase"><a href="#"
+								target="_blank">baixar</a></button>
+						<button class="py-2 px-4 hover:bg-white/10 rounded uppercase"
+							x-on:click="window.location.reload()">reiniciar</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="">
+				<a href="https://bjjcompetidor.com.br" target="_blank">
+					<img src="./img/logo-bjjc.png" class="logo">
+				</a>
+			</div>
+
+			<!-- RIGHT TIME-->
+			<div x-data="timer()" class="flex flex-col">
+				<div class="bg-neutral-800 rounded-lg" style="width: 40vh;">
+					<div class="absolute -mt-8" x-data="{ newTime: false }">
+						<button class="relative text-white py-2 px-4" x-on:click="newTime = ! newTime">
+							<i class="fa-solid fa-clock text-3xl"></i>
+						</button>
+						<div class="bg-gray px-8 py-8 rounded flex-initial" x-show="newTime">
+							<input class="text-2xl border-b-4" type="number" x-model="inputTime" min="1"
+								placeholder="Minutos">
+							<button class="btn" x-on:click="setTime(); newTime = false">REDEFINIR</button>
+							<!-- <button x-on:click="newTime = ! newTime">
+								<i class="fa-solid fa-circle-xmark text-3xl"></i>
+							</button> -->
+						</div>
+					</div>
+					<div class="flex justify-center py-2 px-8">
+						<h1 x-text="formatTime(remainingTime)" class="text-[140px] text-white"></h1>
+					</div>
+					<div class="flex justify-around bg-black py-2 px-4 rounded-b-lg">
+						<button class="relative text-white">
+							<span class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 text-sm"
+								x-on:click="addTime(-30)" x-show="isRunning">30</span>
+							<i class="fa-regular fa-rotate-left text-3xl"></i>
+						</button>
+						<button class="relative text-white">
+							<span class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 text-sm"
+								x-on:click="addTime(-10)" x-show="isRunning">10</span>
+							<i class="fa-regular fa-rotate-left text-3xl"></i>
+						</button>
+						<button class="relative text-white" x-on:click="toggleTimer()">
+							<i class="fa-solid fa-pause text-3xl" x-show="isRunning"></i>
+							<i class="fa-solid fa-play text-3xl" x-show="!isRunning"></i>
+						</button>
+						<button class="relative text-white">
+							<span class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 text-sm"
+								x-on:click="addTime(10)" x-show="isRunning">10</span>
+							<i class="fa-regular fa-rotate-right text-3xl"></i>
+						</button>
+						<button class="relative text-white">
+							<span class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 text-sm"
+								x-on:click="addTime(30)" x-show="isRunning">30</span>
+							<i class="fa-regular fa-rotate-right text-3xl"></i>
+						</button>
+					</div>
+				</div>
+		</footer>
+	</main>
+
+	<script src="js/countdown.js"></script>
+	<script src="js/app.js"></script>
+</body>
+
+
+
+</html>

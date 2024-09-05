@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "alpinejs": "^3.13.10",
+    "sweetalert2": "^11.6.13"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.3"
+  }
+}
