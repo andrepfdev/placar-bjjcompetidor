@@ -8,23 +8,23 @@ Este projeto é uma placar digital para uso em competições de Jiu-Jitsu Brasil
 
 ### Funcionalidades:
 
-Controle de pontuação para dois atletas.
-Registro de vantagens e faltas.
-Cronômetro com funções de pausar, reiniciar e alterar o tempo restante.
-Tela cheia.
-Alteração da categoria da luta.
-Reiniciar placar.
-Doação.
-Download do código fonte.
+* Controle de pontuação para dois atletas.
+* Registro de vantagens e faltas.
+* Cronômetro com funções de pausar, reiniciar e alterar o tempo restante.
+* Tela cheia.
+* Alteração da categoria da luta.
+* Reiniciar placar.
+* Doação.
+* Download do código fonte.
 
 
 ### Instalação:
 
-Baixe o arquivo ZIP
-Extraia os arquivos compactados
-Acesse a pasta do projeto:  placar-bjjcompetidor
-Abra o arquivo Index.html no navegador da sua preferência
-Sugestão: use a função de Tela Duplicada do Windows
+1. Baixe o arquivo ZIP
+2. Extraia os arquivos compactados
+3. Acesse a pasta do projeto:  placar-bjjcompetidor
+4. Abra o arquivo Index.html no navegador da sua preferência
+5. Sugestão: use a função de Tela Duplicada do Windows
 
 ### Contribuição:
 
@@ -36,4 +36,4 @@ MIT
 
 #### Agradecimentos:
 
-BJJ Competidor (https://bjjcompetidor.com.br)
+**BJJ Competidor** (https://bjjcompetidor.com.br)
